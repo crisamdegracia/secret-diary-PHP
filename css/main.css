@@ -1,0 +1,22 @@
+html {
+    
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: url('../img/diary.jpg')no-repeat center fixed;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+#loginForm {
+    display: none;
+}
+#signupBtn {
+    display: none;
+}
+
+.toggleForm {
+     color: #ddd !important;
+}
