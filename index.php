@@ -1,12 +1,21 @@
 <?php 
 
+
+//echo phpinfo();
 session_start();
 $error      = '';
 $success    = '';
 $err        = '';
+
+//DEFINE('DB_USERNAME', 'root');
+//DEFINE('DB_PASSWORD', 'root');
+//DEFINE('DB_HOST', 'localhost');
+//DEFINE('DB_DATABASE', 'performance_schema');
+
 if(mysqli_connect_error()){
-    die("ERROR");
+    die("ERROR  adasdasdasdas");
 } 
+//$link = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD);
 
 if(array_key_exists('logout' , $_GET)){
 
@@ -26,7 +35,6 @@ if(array_key_exists('submit' , $_POST)){
 
     $email      = $_POST['email'];
     $password   = $_POST['password'];
-    $link       = mysqli_connect('shareddb1c.hosting.stackcp.net' ,'userdb-3230cefb', 'GbrLcC8XStZa' , 'userdb-3230cefb');
 
 
     if(!$email){
@@ -41,6 +49,7 @@ if(array_key_exists('submit' , $_POST)){
 
         if( $_POST['signup'] == '1' ){
 
+
             if(!$email){
                 $error .= 'Email is required.<br>';
             } /*if no email
@@ -51,8 +60,10 @@ if(array_key_exists('submit' , $_POST)){
 
             if( !$error ) {
 
+                $link = mysqli_connect('127.0.0.1','root', '','userdbs');
+                echo VAR_DUMP($link);
                 $query  = "SELECT * FROM `users` WHERE email = '$email' ";
-
+//                echo VAR_DUMP($query);
                 if( $result = mysqli_query($link , $query)){
 
                     $row       = mysqli_fetch_array($result);
